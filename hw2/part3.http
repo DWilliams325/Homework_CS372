@@ -1,0 +1,7 @@
+get https://api.openweathermap.org/data/2.5/weather?lat=41.1306&lon=-85.1289&appid=b448c6e3a5055ae3c1c8accbd08216db
+
+###
+get https://api.openweathermap.org/data/2.5/weather?q=Miami,FL,USA&appid=b448c6e3a5055ae3c1c8accbd08216db
+
+###
+get https://api.openweathermap.org/data/2.5/weather?q=San Francisco,CA,USA&appid=b448c6e3a5055ae3c1c8accbd08216db

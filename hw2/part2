@@ -1,0 +1,14 @@
+HTTP Request and Response.
+• What is the main difference between HTTP GET request and HTTP POST request?
+• When to use HTTP GET request and when to use HTTP POST request?
+• What does it mean for HTTP response status code 200, 301, and 404?
+
+
+The main difference between HTTP GET AND POST request is the GET passes the information into the URL and POST passes the information through the body.
+If you need to copy-n-paste information you should use GET. If you have sensitive information or large files/data then you should use POST.
+
+200  means "ok" 
+ 301 means "move permanently" 
+ 404 means "file not found"
+
+ 

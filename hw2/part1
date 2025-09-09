@@ -1,0 +1,77 @@
+
+Bullet One
+
+[willdt03@etcs-student ~]$ dig www.pfw.edu A     //command used
+
+; <<>> DiG 9.11.4-P2-RedHat-9.11.4-26.0.1.P2.el7_9.16 <<>> www.pfw.edu A
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 62162
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;www.pfw.edu.                   IN      A
+
+;; ANSWER SECTION:
+www.pfw.edu.            300     IN      CNAME   pfw.edu.
+pfw.edu.                300     IN      A       104.18.19.143
+pfw.edu.                300     IN      A       104.18.18.143
+
+;; Query time: 1 msec
+;; SERVER: 149.164.1.13#53(149.164.1.13)
+;; WHEN: Mon Sep 08 20:26:46 EDT 2025
+;; MSG SIZE  rcvd: 86
+
+[willdt03@etcs-student ~]$
+
+
+Bullet 2
+
+[willdt03@etcs-student ~]$ dig www.pfw.edu NS
+
+; <<>> DiG 9.11.4-P2-RedHat-9.11.4-26.0.1.P2.el7_9.16 <<>> www.pfw.edu NS
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 38388
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;www.pfw.edu.                   IN      NS
+
+;; ANSWER SECTION:
+www.pfw.edu.            300     IN      CNAME   pfw.edu.
+pfw.edu.                28800   IN      NS      idnsa.pfw.edu.
+pfw.edu.                28800   IN      NS      dns1.pfw.edu.
+
+;; Query time: 218 msec
+;; SERVER: 149.164.1.13#53(149.164.1.13)
+;; WHEN: Mon Sep 08 20:28:27 EDT 2025
+;; MSG SIZE  rcvd: 93
+
+[willdt03@etcs-student ~]$
+
+[willdt03@etcs-student ~]$ dig www.pfw.edu MX
+
+; <<>> DiG 9.11.4-P2-RedHat-9.11.4-26.0.1.P2.el7_9.16 <<>> www.pfw.edu MX
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 12292
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;www.pfw.edu.                   IN      MX
+
+;; ANSWER SECTION:
+www.pfw.edu.            300     IN      CNAME   pfw.edu.
+pfw.edu.                300     IN      MX      0 pfw-edu.mail.protection.outlook.com.
+
+;; Query time: 0 msec
+;; SERVER: 149.164.1.13#53(149.164.1.13)
+;; WHEN: Mon Sep 08 20:32:15 EDT 2025
+;; MSG SIZE  rcvd: 105
