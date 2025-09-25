@@ -33,3 +33,4 @@ lucky.addEventListener('click', function () {
   }
   showInfo(q.toUpperCase());
 });
+//fix
