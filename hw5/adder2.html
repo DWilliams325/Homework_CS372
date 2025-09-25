@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A Simple Adder</title>
+  <script>
+    function calculate(op) {
+      let number1 = Number(document.getElementById("num1").value);
+      let number2 = Number(document.getElementById("num2").value);
+      let resultBox = document.getElementById("result");
+      let result;
+
+      if (isNaN(number1) || isNaN(number2)) {
+        resultBox.value = "Invalid input!";
+        return;
+      }
+
+      switch (op) {
+        case "add":
+          result = number1 + number2;
+          break;
+        case "sub":
+          result = number1 - number2;
+          break;
+        case "mul":
+          result = number1 * number2;
+          break;
+        case "div":
+          if (number2 === 0) {
+            result = "Cannot divide by zero!";
+          } else {
+            result = number1 / number2;
+          }
+          break;
+      }
+      resultBox.value = result;
+    }
+  </script>
+</head>
+<body>
+  <form onsubmit="return false;">
+    Number 1: <input type="text" id="num1"><br/><br/>
+    Number 2: <input type="text" id="num2"><br/><br/>
+
+    <input type="button" value="Add" onclick="calculate('add')">
+    <input type="button" value="Sub" onclick="calculate('sub')">
+    <input type="button" value="Mul" onclick="calculate('mul')">
+    <input type="button" value="Div" onclick="calculate('div')">
+    <br/><br/>
+
+    Result: <input type="text" id="result" readonly><br/><br/>
+  </form>
+</body>
+</html>

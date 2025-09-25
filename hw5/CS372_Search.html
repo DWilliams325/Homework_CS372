@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>CS372 Search</title>
+  <style>
+    form { text-align: center; }
+    #searchBar { width: 800px; }
+    #luckyBtn, #search { width: 250px; }
+    #message {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 12px;
+      min-height: 1.25em; 
+    }
+  </style>
+</head>
+<body>
+  <form id="searchForm" action="https://www.google.com/search" method="get">
+    <img src="CS372_Search.png" alt="CS372_Search"><br><br>
+
+    <input type="text" name="q" id="searchBar" autocomplete="off"><br><br>
+
+    <input type="submit" value="CS372 Search" id="search">
+    <input type="button" value="I'm Feeling Lucky" id="luckyBtn">
+  </form>
+
+  <p id="message"></p>
+
+  <script src="search.js"></script>
+</body>
+</html>
