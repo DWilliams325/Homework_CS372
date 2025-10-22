@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CS372 Search</title>
+    <style>
+      form {
+        text-align: center;
+      }
+      #searchBar {
+        width: 800px;
+      }
+      #luckyBtn {
+        width: 250px;
+      }
+      #search {
+        width: 250px;
+      }
+      #result {
+        width: 800px;
+        margin: 16px auto;
+        font-family: sans-serif;
+        text-align: left;
+      }
+      #result .ok {
+        font-weight: bold;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <form id="searchForm" action="https://www.google.com/search" method="get">
+      <img src="CS372_Search.png" alt="CS372_Search" /><br /><br />
+      <input
+        type="text"
+        name="q"
+        id="searchBar"
+        placeholder="Search or type Temp:City[,CountryCode]"
+      />
+      <br /><br />
+      <input type="submit" value="CS372 Search" id="search" />
+      <input type="submit" value="I'm Feeling Lucky" id="luckyBtn" />
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+      $("#searchForm").on("submit", function (e) {
+        const q = $("#searchBar").val() || "";
+        if (q.toLowerCase().startsWith("temp:")) {
+          e.preventDefault();
+          $.ajax({
+            url: "index.js",
+            data: { q },
+            dataType: "json",
+            success: function (data) {
+              if (data && data.ok) {
+                $("#result").html(
+                  `<div class="ok">City: ${data.city}<br>Temperature: ${data.temp_c} °C<br>Weather: ${data.weather}</div>`
+                );
+              } else {
+                $("#result").text("Error getting temperature.");
+              }
+            },
+            error: function (xhr) {
+              $("#result").text("Request failed: " + xhr.status);
+            },
+          });
+        }
+        
+      });
+    </script>
+  </body>
+</html>
