@@ -6,7 +6,7 @@ const path = require('path');
 const PORT = 3720;
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const INDEX_HTML = path.join(PUBLIC_DIR, 'index.html');
-const OWM_API_KEY = "Persnoal Key";
+const OWM_API_KEY = "Persnoal Api Key";
 
 function fetchTemp(cityQuery, cb) {
   if (!OWM_API_KEY) return cb(new Error('Missing OWM_API_KEY'));
