@@ -16,3 +16,5 @@ curl http://localhost:8080/accounts/0 -X DELETE -i
 
 # GET accounts again
 curl http://localhost:8080/accounts -i
+
+# push
