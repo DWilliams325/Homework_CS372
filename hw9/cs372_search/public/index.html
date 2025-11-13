@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CS372 Search</title>
+    <style>
+      form {
+        text-align: center;
+      }
+      #searchBar {
+        width: 800px;
+      }
+      #luckyBtn {
+        width: 250px;
+      }
+      #search {
+        width: 250px;
+      }
+      #result {
+        width: 800px;
+        margin: 16px auto;
+        font-family: sans-serif;
+        text-align: left;
+      }
+      #result .ok {
+        font-weight: bold;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <form id="searchForm" action="index.js" method="get">
+      <img src="CS372_Search.png" alt="CS372_Search" /><br /><br />
+      <input
+        type="text"
+        name="q"
+        id="searchBar"
+        placeholder="Search or type Temp:City[,CountryCode]"
+      />
+      <br /><br />
+      <input type="submit" value="CS372 Search" id="search" />
+      <input type="submit" value="I'm Feeling Lucky" id="luckyBtn" />
+    </form>
+
+<ul id="result-list"></ul>
+
+    <script>
+  // Handle "I'm Feeling Lucky!" → adds string to MongoDB and displays it in a growing list
+  document.getElementById("luckyBtn").addEventListener("click", async (e) => {
+    e.preventDefault();
+    const text = document.getElementById("searchBar").value.trim();
+    if (!text) return alert("Enter something first!");
+
+    // Send POST to /add endpoint
+    await fetch("/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text })
+    });
+
+    // Append new string as a list item
+    const list = document.getElementById("result-list");
+    const li = document.createElement("li");
+    li.textContent = "Added string: " + text;
+    list.appendChild(li);
+
+    // Clear search bar
+    document.getElementById("searchBar").value = "";
+  });
+
+  // Handle "CS372 Search" → searches MongoDB for matching strings
+  document.getElementById("search").addEventListener("click", async (e) => {
+    e.preventDefault();
+    const q = document.getElementById("searchBar").value.trim();
+
+    const res = await fetch(`/search?q=${encodeURIComponent(q)}`);
+    const data = await res.json();
+
+    const list = document.getElementById("result-list");
+    list.innerHTML = ""; // clear existing list
+
+    if (data.length === 0) {
+      const li = document.createElement("li");
+      li.textContent = "No results found.";
+      list.appendChild(li);
+    } else {
+      data.forEach(d => {
+        const li = document.createElement("li");
+        li.textContent = d.text;
+        list.appendChild(li);
+      });
+    }
+  });
+</script>
+
+
+  </body>
+</html>
+<!-- push   -->

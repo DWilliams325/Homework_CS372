@@ -1,0 +1,20 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha ./tests --recursive --timeout 15000 --exit"
+  },
+  "dependencies": {
+    "body-parser": "1.20.3",
+    "errorhandler": "1.5.1",
+    "express": "4.21.2",
+    "morgan": "1.10.1"
+  },
+  "devDependencies": {
+    "mocha": "^10.7.3",
+    "supertest": "^7.0.0"
+  }
+  
+}
